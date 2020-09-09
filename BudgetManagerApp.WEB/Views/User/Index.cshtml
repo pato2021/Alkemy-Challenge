@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BudgetManagerApp.WEB.Models.OperationModel>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Concept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Concept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditOperation", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteOperation", new { id = item.Id })|
+                @Html.ActionLink("Categorize", "CategorizeOperation", new { id = item.Id }) |
+            </td>
+        </tr>
+
+
+    }
+
+</table>
+<div>
+    <h4>Total Income:  @ViewBag.Income</h4>
+</div>
+
+<div>
+    <h4>Total Expense:  @ViewBag.Expense</h4>
+</div>
+
+<div>
+    <h4>Balance:  @ViewBag.Balance</h4>
+</div>
